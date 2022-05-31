@@ -1,0 +1,157 @@
+﻿<Window x:Class="DashboardEV.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DashboardEV"
+        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+        mc:Ignorable="d" Height="700" Width="1350" ResizeMode="CanResizeWithGrip" SizeToContent="Manual" WindowStartupLocation="CenterScreen"  Cursor="Arrow" Focusable="True" IsTabStop="True"  AllowsTransparency="False"  Icon="Gambar\LOGO NOGOGENI.png"
+        xmlns:scrollable="clr-namespace:DashboardEV"
+        Title="DashBoard EV"
+        >
+
+    <Window.Background>
+        <SolidColorBrush Color="#000028"/>
+    </Window.Background>
+    <Window.DataContext>
+        <scrollable:ScrollableViewModel></scrollable:ScrollableViewModel>
+    </Window.DataContext>
+    <Grid>
+        <Image Source="Gambar/LOGO NOGOGENI.png" Margin="597,10,561,0" VerticalAlignment="Top" HorizontalAlignment="Center" Height="125" Width="186"/>
+        <Grid x:Name="displayThrottle" HorizontalAlignment="Right" Background="#111130" Opacity="0.6" Height="189" Margin="0,168,20,0"  VerticalAlignment="Top" Width="793">
+            <Grid Background="#11113d" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="353" Margin="449,0,0,0"/>
+            <Grid Background="#11113d" HorizontalAlignment="Left" Height="189" VerticalAlignment="Top" Width="465">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="65*"/>
+                    <RowDefinition Height="124*"/>
+                </Grid.RowDefinitions>
+                <lvc:Gauge x:Name="voltageGauge"  Grid.Column="0" From="0" To="55" Uses360Mode="True" GaugeBackground="#1f212f" Value="54" Foreground="White" LabelsVisibility="Visible" Margin="26,3.8,312,10" Grid.Row="1">
+                    <lvc:Gauge.GaugeActiveFill>
+                        <LinearGradientBrush>
+                            <GradientStop Color="#FFFF5100" Offset="0.189"/>
+                            <GradientStop Color="#FFFF2300" Offset="0.446"/>
+                            <GradientStop Color="#f10000" Offset="0.574"/>
+                        </LinearGradientBrush>
+                    </lvc:Gauge.GaugeActiveFill>
+                </lvc:Gauge>
+                <Label Content="V" FontSize="22" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0,0" Margin="81,27,0,0" Width="31" Height="42" Grid.RowSpan="2" />
+                <Label Content="A" FontSize="22" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0,0" Margin="228,27,0,0" Height="37" />
+            </Grid>
+            <lvc:Gauge x:Name="ampGauge"  Grid.Column="0" From="0" To="50" Uses360Mode="True" GaugeBackground="#1f212f" Value="11.2" Foreground="White" LabelsVisibility="Visible" Margin="156,67,481,9">
+                <lvc:Gauge.GaugeActiveFill>
+                    <LinearGradientBrush>
+                        <GradientStop Color="#FFFF5100" Offset="0.189"/>
+                        <GradientStop Color="#FFFF2300" Offset="0.446"/>
+                        <GradientStop Color="#f10000" Offset="0.574"/>
+                    </LinearGradientBrush>
+                </lvc:Gauge.GaugeActiveFill>
+            </lvc:Gauge>
+            <lvc:Gauge x:Name="wattGauge"  Grid.Column="0" From="0" To="100" Uses360Mode="True" GaugeBackground="#1f212f" Value="11.2" Foreground="White" LabelsVisibility="Visible" Margin="299,67,337,9">
+                <lvc:Gauge.GaugeActiveFill>
+                    <LinearGradientBrush>
+                        <GradientStop Color="#FFFF5100" Offset="0.189"/>
+                        <GradientStop Color="#FFFF2300" Offset="0.446"/>
+                        <GradientStop Color="#f10000" Offset="0.574"/>
+                    </LinearGradientBrush>
+                </lvc:Gauge.GaugeActiveFill>
+            </lvc:Gauge>
+            <Label Content="W" FontSize="22" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0,0" Margin="367,27,0,0" Height="37" />
+            <lvc:Gauge x:Name="rpmGauge"  Grid.Column="0" From="0" To="1200" Uses360Mode="True" GaugeBackground="#1f212f" Value="750" Foreground="White" LabelsVisibility="Visible" Margin="460,66,164,10">
+                <lvc:Gauge.GaugeActiveFill>
+                    <LinearGradientBrush>
+                        <GradientStop Color="#FFFF5100" Offset="0.189"/>
+                        <GradientStop Color="#FFFF2300" Offset="0.446"/>
+                        <GradientStop Color="#f10000" Offset="0.574"/>
+                    </LinearGradientBrush>
+                </lvc:Gauge.GaugeActiveFill>
+            </lvc:Gauge>
+            <Label Content="RPM" FontSize="22" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0,0" Margin="488,22,0,0" Width="130" HorizontalContentAlignment="Center" />
+            <lvc:Gauge x:Name="speedGauge"  Grid.Column="0" From="0" To="60" Uses360Mode="True" GaugeBackground="#1f212f" Value="35" Foreground="White" LabelsVisibility="Visible" Margin="605,67,19,9">
+                <lvc:Gauge.GaugeActiveFill>
+                    <LinearGradientBrush>
+                        <GradientStop Color="#FFFF5100" Offset="0.189"/>
+                        <GradientStop Color="#FFFF2300" Offset="0.446"/>
+                        <GradientStop Color="#f10000" Offset="0.574"/>
+                    </LinearGradientBrush>
+                </lvc:Gauge.GaugeActiveFill>
+            </lvc:Gauge>
+            <Label Content="SPEED" FontSize="22" Foreground="#7CFFFFFF" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0,0" Margin="652,25,0,0" Width="82" HorizontalContentAlignment="Center" Height="36" />
+        </Grid>
+        <Grid x:Name="progressBar" HorizontalAlignment="Right" VerticalAlignment="Top" Background ="#FF11113D"  Width="501" Height="60" Margin="0,168,818,0" >
+            <Label x:Name="throttleLabel" Content="T%" Foreground="#7CFFFFFF" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Consolas" FontSize="22" Margin="98,14,0,0" Height="34" Width="51" RenderTransformOrigin="0.695,0.418" HorizontalContentAlignment="Center" />
+            <ProgressBar x:Name="throttleBar" Minimum="0" Maximum="100" Value="76" Foreground="Red" Background="#11113d" HorizontalAlignment="Left" Height="34" Margin="154,14,0,0" VerticalAlignment="Top" Width="288"/>
+            <Label Content="THROTTLE" FontSize="18" Foreground="#7CFFFFFF" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0,0" Margin="0,14,0,0" Width="114" HorizontalContentAlignment="Center" Height="34" />
+        </Grid>
+        <Grid x:Name="miniPanel" HorizontalAlignment="Right" VerticalAlignment="Bottom" Background="#111130" Opacity="0.6" Height="263" Margin="0,0,20,35.4"  Width="793" RenderTransformOrigin="0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="63*"/>
+                <RowDefinition Height="23*"/>
+            </Grid.RowDefinitions>
+            <Grid Background="#11113d" HorizontalAlignment="Left" Height="43" VerticalAlignment="Top" Width="802">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="484*"/>
+                    <ColumnDefinition Width="481*"/>
+                </Grid.ColumnDefinitions>
+            </Grid>
+            <Grid x:Name="additional" HorizontalAlignment="Left" VerticalAlignment="Top" Width="396" Height="158" Margin="0,30,0,0">
+                <Label Content="Ampere Peak" FontFamily="Consolas"  FontSize="18"  Foreground="White" Margin="18,25,235,88"/>
+                <Label Content="Watt Peak" FontFamily="Consolas"  FontSize="18" Foreground="White" Margin="18,92,235,11"/>
+                <Label x:Name="amperePeak"  Content="12.96" FontFamily="Courier New" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" FontSize="40" Margin="146,15,0,0" RenderTransformOrigin="-0.053,0.561" Height="65" Width="164"/>
+                <Label x:Name="wattPeak" Content="599.60" FontFamily="Courier New"  Foreground="White" FontSize="40" Margin="146,80,86,12" Height="66"/>
+                <Label Content="Ampere Hours" FontFamily="Consolas"  FontSize="18"  Foreground="White" Margin="342,25,-101,87"/>
+                <Label Content="Watt Hours" FontFamily="Consolas"  FontSize="18" Foreground="White" Margin="342,91,-87,17"/>
+                <Label x:Name="ampereHours"  Content="12.96" FontFamily="Courier New" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" FontSize="40" Margin="489,14,-302,0" RenderTransformOrigin="-0.053,0.561" Height="56" Width="209"/>
+                <Label x:Name="wattHours" Content="599.60" FontFamily="Courier New"  Foreground="White" FontSize="40" Margin="483,76,-302,16" Height="66"/>
+
+            </Grid>
+
+            <Grid x:Name="control" HorizontalAlignment="Left" VerticalAlignment="Top" Background="Transparent" Width="683" Height="52" Margin="38,6.933,0,0" Grid.Row="1">
+                <Label Content="Topic" HorizontalAlignment="Left" Margin="23,10,0,0" VerticalAlignment="Top" Background="#FF172D8C" Width="75" Height="32" FontSize="18" FontFamily="Courier New" Foreground="#FFABADB3" HorizontalContentAlignment="Center"/>
+                <TextBox x:Name="txtTopic" HorizontalAlignment="Left" Height="32" Margin="117,10,0,0" TextWrapping="Wrap" Text="/oneM2M/resp/antares-cse/b384471c570f5ff7:74e8f3edcd6e49b5/json" VerticalAlignment="Top" Width="445" FontSize="14" />
+                <Button x:Name="btnSubscribe" Content="Subscribe" HorizontalAlignment="Left" Margin="584,10,0,0" VerticalAlignment="Top" Width="89" Height="32" FontSize="18" RenderTransformOrigin="0.33,0.465"/>
+            </Grid>
+            <Label Content="Ah" FontFamily="Consolas"  FontSize="35"  Foreground="White" Margin="645,48,57,62.6" HorizontalContentAlignment="Center"/>
+            <Label Content="Wh" FontFamily="Consolas"  FontSize="35"  Foreground="White" Margin="645,108,57,35.8" HorizontalContentAlignment="Center"/>
+
+            <Grid x:Name='mygrid' Margin="182,0,224,0.2" Grid.RowSpan="2"/>
+        </Grid>
+
+        <Grid>
+
+            <Grid.Resources>
+                <Style x:Key="CleanSeparator" TargetType="lvc:Separator">
+                    <Setter Property="IsEnabled" Value="False"></Setter>
+                </Style>
+            </Grid.Resources>
+
+            <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal" Margin="25, 10">
+                <Path Width="25" Height="25" Stretch="Fill" Fill="#4C4949" Data="F1 M 38,3.16666C 57.2379,3.16666 72.8333,18.7621 72.8333,38C 72.8333,57.2379 57.2379,72.8333 38,72.8333C 18.7621,72.8333 3.16667,57.2379 3.16667,38C 3.16667,18.7621 18.7621,3.16666 38,3.16666 Z M 52.252,18.9974L 36.4164,18.9974L 23.75,39.5833L 34.8333,39.5833L 25.3316,60.1667L 50.6667,34.8333L 38,34.8333L 52.252,18.9974 Z "/>
+                <StackPanel Margin="10, 0">
+                    <TextBlock FontSize="22" Foreground="#7CFFFFFF">Monitoring</TextBlock>
+                    <TextBlock FontSize="14" Foreground="#7CFFFFFF">Urban Electric</TextBlock>
+                </StackPanel>
+            </StackPanel>
+
+            <lvc:CartesianChart Series="{Binding SeriesCollection}"  Hoverable="True" HorizontalAlignment="Stretch"  LegendLocation="Top" Margin="25,233,818,35.4"  Foreground="#f10000" Background="#11113d" FontSize="17">
+            <lvc:CartesianChart.AxisX>
+                <lvc:Axis Unit="1" MinValue="0" Width="100" Title="Time" HorizontalAlignment="Center" ShowLabels="True"  Labels="{Binding Labels}" Foreground="PaleVioletRed"  FontSize="15"  />
+            </lvc:CartesianChart.AxisX>
+                <lvc:CartesianChart.AxisY>
+                    <lvc:Axis MaxValue="100" MinValue="0" VerticalAlignment="Center" Foreground="PaleVioletRed" Position="LeftBottom"/>
+                    <lvc:Axis MaxValue="1000" MinValue="0" Foreground="PaleVioletRed" VerticalAlignment="Center" Position="RightTop" >
+                        <lvc:Axis.Separator>
+                            <lvc:Separator Style="{StaticResource CleanSeparator}"></lvc:Separator>
+                        </lvc:Axis.Separator>
+                    </lvc:Axis>
+                </lvc:CartesianChart.AxisY>
+            </lvc:CartesianChart>
+
+        </Grid>
+
+        <Button x:Name="closeButton" Background="Transparent" BorderBrush="Transparent" HorizontalAlignment="Right" VerticalAlignment="Top" Height="25" Margin="0,20,20,0" Width="25" Click="closeButton_Click">
+            <Image Source="Gambar\closeMonitoring.png"/>
+        </Button>
+
+    </Grid>
+
+</Window>
